@@ -160,7 +160,7 @@
                             <label class="sr-only" for="exampleInputEmail2">Email address</label>
                             <input type="email" id="mail" class="form-control transparent" placeholder="Mon email...">
                           </div>
-                          <button type="submit" class="btn btn-danger btn-fill">M'inscrire</button>
+                          <button type="submit" id="btn_mail" class="btn btn-danger btn-fill" onclick="sendMail();">M'inscrire</button>
                         </form>
 
                     </div>
@@ -176,13 +176,17 @@
     </div>
  </div>
  </body>
-    <script src="/js/mon_script.js" type="text/javascript">
-        mixpanel.identify();
-        mixpanel.people.set({
-            "$email": "joe.doe@example.com"
-        });
-    </script>
+
     <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function sendMail() {
+        mixpanel.identify();
+        mixpanel.track("Mail renseigné");
+        mixpanel.people.set({
+            "$email": $("#mail").val()
+        });
+    }
+    </script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
 </html>
