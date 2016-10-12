@@ -176,14 +176,15 @@
 <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
 
     <script type="text/javascript">
+        mixpanel.identify();
+        mixpanel.track("Page visitée");
         function sendMail() {
-           mixpanel.identify();
-           mixpanel.track("Mail renseigné");
-           mixpanel.people.set({
-               "$email": $("#mail").val()
-           });
+            mixpanel.track("Mail renseigné");
+            mixpanel.people.set({
+                "$email": $("#mail").val()
+            });
         }
-        </script>
+    </script>
 
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 
